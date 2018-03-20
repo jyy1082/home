@@ -19,6 +19,13 @@
   layui.use('layer', function(){
 	var layer = layui.layer,
 	        $ = layui.jquery;
+			
+	$("#refresh_btn").on("click",function(){
+        
+		$.get("refresh.php", function(data, status){
+					//console.log(data);
+		});
+    });
   	$("#urlChange_btn").on("click",function(){
         layer.prompt({title: '请输入新的加载地址'},function(val, index){
 			//layer.msg('得到了'+val);
@@ -109,6 +116,7 @@
 				echo shell_exec("sudo cat /boot/fullpageos.txt");
 			?>
 			</div>
+			<button id="refresh_btn" class="layui-btn layui-btn-normal">刷新屏显</button>
 			<button id="urlChange_btn" class="layui-btn layui-btn-normal">修改网址</button>
 		</section>
 		<section>
